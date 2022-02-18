@@ -85,8 +85,7 @@ export class UploaderImageComponent implements OnInit, AfterViewInit {
           this.showSpinner = false;
           this.router.navigate(['upload/view', img]);
         })
-        .catch((err) => {
-          console.log(err);
+        .catch(() => {
           Swal.fire('Ups!', 'File upload error', 'error');
         });
     }
