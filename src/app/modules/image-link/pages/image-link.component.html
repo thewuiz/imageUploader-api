@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col hv100 d-flex align-items-center justify-content-center">
+      <div class="card">
+        <div
+          class="card-body d-flex flex-column align-items-center justify-content-center"
+        >
+          <div
+            class="succes__upload d-flex align-content-around align-items-center"
+          >
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <h2 class="card-title p-3">Uploaded Successfully!</h2>
+          <img [src]="imageUrl" alt="" />
+          <div class="input-group p-3">
+            <input
+              id="clipboardExample1"
+              type="text"
+              class="form-control"
+              [(ngModel)]="imageUrl"
+              [placeholder]="imageUrl"
+              aria-label="Recipient's username"
+              aria-describedby="button-addon2"
+              disabled
+            />
+            <button
+              class="button__drog"
+              type="button"
+              [cdkCopyToClipboard]="imageUrl"
+            >
+              Copy Link
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

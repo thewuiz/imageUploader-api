@@ -1,0 +1,56 @@
+.card {
+  padding: 0;
+  margin: 0;
+  border-radius: 12px;
+  width: 400px !important;
+  height: 454px !important;
+  background: #ffffff;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.card.card-body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card h2 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: -0.035em;
+  color: #4f4f4f;
+}
+
+.succes__upload {
+  padding: 10px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  background-color: #219653;
+  color: #fff;
+}
+
+img {
+  width: 338px;
+  height: 224.4px;
+  border-radius: 12px;
+  transform: scale(0.9);
+}
+
+.button__drog {
+  background: #2f80ed;
+  border-radius: 8px;
+  padding: 10px 25px;
+  border: 0;
+  color: #fff;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+}

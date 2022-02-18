@@ -13,7 +13,7 @@ export class UploaderService {
     try {
       const formData = new FormData();
       formData.append('image', image);
-      const response = await fetch(`${this.urlEndPoint}/image/`, {
+      const response = await fetch(`${this.urlEndPoint}/image`, {
         method: 'POST',
         body: formData,
       });

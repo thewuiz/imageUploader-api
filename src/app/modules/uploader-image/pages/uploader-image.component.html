@@ -1,15 +1,15 @@
-<app-progressbar></app-progressbar>
-
 <div class="container">
   <div class="row">
     <div class="col hv100 d-flex align-items-center justify-content-center">
-      <div class="card" style="width: 18rem;">
+      <app-progressbar *ngIf="showSpinner"></app-progressbar>
+
+      <div *ngIf="!showSpinner" class="card">
         <div
           class="card-body d-flex flex-column align-items-center justify-content-center"
         >
           <h2 class="card-title">Upload your image</h2>
           <h6>
-            File should be Jpeg, Png
+            File should be Jpeg, Png or Gif
           </h6>
           <div
             (drop)="onDrop($event)"
@@ -23,7 +23,8 @@
             <h6>Drag & Drop your image here</h6>
           </div>
           <p>Or</p>
-          <button class="button__drog">Choose a file</button>
+          <input type="file" #inputUploader hidden />
+          <button #btnInput class="button__drog">Choose a file</button>
         </div>
       </div>
     </div>

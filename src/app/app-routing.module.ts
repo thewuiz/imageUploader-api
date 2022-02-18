@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'upload',
     loadChildren: () =>
       import('@modules/uploader-image/uploader-image.module').then(
         (m) => m.UploaderImageModule
       ),
   },
-  { path: '**', redirectTo: '/' },
+  { path: '**', redirectTo: '/upload' },
 ];
 
 @NgModule({
