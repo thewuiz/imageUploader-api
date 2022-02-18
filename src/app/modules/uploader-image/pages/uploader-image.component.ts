@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { UploaderService } from '@uploader-service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-uploader-image',
@@ -75,9 +76,10 @@ export class UploaderImageComponent implements OnInit, AfterViewInit {
 
   //Upload image
   uploadImage(file: File) {
-    this.showSpinner = true;
     if (this.validExtensions.includes(file.type)) {
-      this.uploaderService
+      this.showSpinner = true;
+
+      return this.uploaderService
         .postImage(file)
         .then((img) => {
           this.showSpinner = false;
@@ -85,7 +87,9 @@ export class UploaderImageComponent implements OnInit, AfterViewInit {
         })
         .catch((err) => {
           console.log(err);
+          Swal.fire('Ups!', 'File upload error', 'error');
         });
     }
+    return Swal.fire('Ups!', 'File should be Jpeg, Png or Gif', 'error');
   }
 }

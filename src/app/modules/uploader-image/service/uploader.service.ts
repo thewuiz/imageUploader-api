@@ -10,18 +10,20 @@ export class UploaderService {
   constructor() {}
 
   async postImage(image: File) {
+    const formData = new FormData();
+    formData.append('image', image);
     try {
-      const formData = new FormData();
-      formData.append('image', image);
       const response = await fetch(`${this.urlEndPoint}/image`, {
         method: 'POST',
         body: formData,
       });
 
-      const responseText = await response.text();
-      return responseText;
+      const data = await response.json();
+      if (data.status == 200) {
+        return data.path;
+      }
     } catch (error) {
-      return error;
+      return false;
     }
   }
 }
