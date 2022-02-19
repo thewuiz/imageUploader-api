@@ -23,7 +23,7 @@ export class UploaderService {
         return data.path;
       }
     } catch (error) {
-      return false;
+      return error;
     }
   }
 }

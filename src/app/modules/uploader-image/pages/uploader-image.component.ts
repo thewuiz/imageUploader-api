@@ -75,19 +75,16 @@ export class UploaderImageComponent implements OnInit, AfterViewInit {
   }
 
   //Upload image
-  uploadImage(file: File) {
+  async uploadImage(file: File) {
     if (this.validExtensions.includes(file.type)) {
       this.showSpinner = true;
-
-      return this.uploaderService
-        .postImage(file)
-        .then((img) => {
-          this.showSpinner = false;
-          this.router.navigate(['upload/view', img]);
-        })
-        .catch(() => {
-          Swal.fire('Ups!', 'File upload error', 'error');
-        });
+      try {
+        const img = await this.uploaderService.postImage(file);
+        this.showSpinner = false;
+        return this.router.navigate(['upload/view', img]);
+      } catch {
+        Swal.fire('Ups!', 'File upload error', 'error');
+      }
     }
     return Swal.fire('Ups!', 'File should be Jpeg, Png or Gif', 'error');
   }
